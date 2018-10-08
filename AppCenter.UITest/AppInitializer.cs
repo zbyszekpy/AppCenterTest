@@ -10,8 +10,13 @@ namespace AppCenter.UITest
         {
             if (platform == Platform.Android)
             {
-                return ConfigureApp.Android.StartApp();
-            }
+                return ConfigureApp.Android
+                  //.PreferIdeSettings()
+                  .InstalledApp("com.companyname.AppCenterTestApp")
+                  .EnableLocalScreenshots()
+                  //.WaitTimes(new EspWaitTimes())
+                  .StartApp(Xamarin.UITest.Configuration.AppDataMode.DoNotClear);
+      }
 
             return ConfigureApp.iOS.StartApp();
         }
