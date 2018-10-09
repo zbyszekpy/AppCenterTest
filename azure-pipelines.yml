@@ -22,3 +22,7 @@ steps:
     projectFile: '**/*droid*.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+
+- task: PublishTestResults@2
