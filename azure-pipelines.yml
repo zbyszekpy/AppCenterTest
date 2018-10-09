@@ -28,8 +28,9 @@ steps:
     testAssemblyVer2: '**\*Test.dll'
 
 - task: PublishTestResults@2
-  #inputs:
-      testResultsFormat: 'VSTest' # Options: JUnit, NUnit, VSTest, xUnit
+  inputs:
+      testResultsFormat: 'VSTest' 
+      # Options: JUnit, NUnit, VSTest, xUnit
       #testResultsFiles: '**/TEST-*.xml' 
       #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
       #mergeTestResults: false # Optional
