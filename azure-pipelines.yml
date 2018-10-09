@@ -19,13 +19,24 @@ steps:
     
 - task: VSBuild@1
   inputs:
-    projectFile: '**\*Test.csproj'
+    solution: '**\*Test.*proj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
 - task: VSTest@2
+  inputs:
+    testAssemblyVer2: **\*Test.dll''
 
 - task: PublishTestResults@2
+  #inputs:
+      testResultsFormat: 'VSTest' # Options: JUnit, NUnit, VSTest, xUnit
+      #testResultsFiles: '**/TEST-*.xml' 
+      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      #mergeTestResults: false # Optional
+      #testRunTitle: # Optional
+      #buildPlatform: # Optional
+      #buildConfiguration: # Optional
+      #publishRunAttachments: true # Optional
 
 - task: XamarinAndroid@1
   inputs:
