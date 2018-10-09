@@ -19,13 +19,13 @@ steps:
     
 - task: VSBuild@1
   inputs:
-    solution: '**\*Test.*proj'
+    solution: '**\*UnitTest.*proj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
 - task: VSTest@2
   inputs:
-    testAssemblyVer2: '**\*Test.dll'
+    testAssemblyVer2: '**\*UnitTest.dll'
 
 - task: PublishTestResults@2
   inputs:
