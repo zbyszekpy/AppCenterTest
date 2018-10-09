@@ -24,7 +24,6 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: VSTest@2
-  inputs:
 
 - task: PublishTestResults@2
 
