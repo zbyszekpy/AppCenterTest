@@ -16,9 +16,10 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '**/*.sln'
+    
 - task: VSBuild@1
   inputs:
-    projectFile: solution: '**\*Test.csproj'
+    projectFile: '**\*Test.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
