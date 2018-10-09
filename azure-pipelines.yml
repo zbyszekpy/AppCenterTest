@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
 
 pool:
-  vmImage: 'macOS 10.13'
+  vmImage: 'vs2017-win2016'
 
 variables:
   buildConfiguration: 'Release'
@@ -16,6 +16,16 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '**/*.sln'
+- task: VSBuild@1
+  inputs:
+    projectFile: solution: '**\*Test.csproj'
+    outputDirectory: '$(outputDirectory)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+
+- task: PublishTestResults@2
 
 - task: XamarinAndroid@1
   inputs:
@@ -23,6 +33,3 @@ steps:
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-
-- task: PublishTestResults@2
