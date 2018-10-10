@@ -9,6 +9,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
   outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
+  system.debug: 'true'
+  agent.diagnostic: 'true'
 
 steps:
 - task: NuGetToolInstaller@0
