@@ -9,8 +9,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
   outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
-  system.debug: 'true'
-  agent.diagnostic: 'true'
+  # system.debug: 'true'
+  # agent.diagnostic: 'true'
 
 steps:
 - task: NuGetToolInstaller@0
@@ -27,7 +27,7 @@ steps:
 
 - task: VSTest@2
   inputs:
-    testAssemblyVer2: '**\*UnitTest.dll!**\obj\**'
+    testAssemblyVer2: '**\*UnitTest.dll\n!**\obj\**'
 
 
 - task: PublishTestResults@2
